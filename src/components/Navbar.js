@@ -1,20 +1,28 @@
 import React,{useEffect} from 'react'
 // import { Link } from "react-router-dom";
 // import About from "./About";
-import { useLocation } from 'react-router-dom';
+import {useLocation, useNavigate } from 'react-router-dom';
 
 
 
 
-function Navbar() {
+function Navbar(props) {
+
+  const navigate = useNavigate();
   let location = useLocation();
 
 useEffect(() => {
   console.log(location.pathname);
 }, [location]);
   
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    props.showAlert("Logout successfully", "success");
+    navigate('/login');
+  }
+  
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
   <div className="container-fluid">
     <a className="navbar-brand" href="/">Navbar</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +37,11 @@ useEffect(() => {
         <li className="nav-item">
               {/* <a className="nav-link" href="/about">About</a> */}
               <a className={`nav-link ${location.pathname==="/about"?"active":""}`} href="/about">About</a>
-        </li>
+            </li>
+            
+            {localStorage.getItem('token')?<li className="nav-item">
+              <a className={`nav-link ${ location.pathname === "/user" ? "active" : "" }`} href="/user">user Profile</a>
+            </li>:""}
         {/* <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
@@ -45,12 +57,12 @@ useEffect(() => {
           <a className="nav-link disabled" aria-disabled="true">Disabled</a>
         </li> */}
       </ul>
-          <form className="d-flex">
-          {/* // eslint-disable-next-line */}
+          {!localStorage.getItem('token') ? <form className="d-flex">
+            {/* // eslint-disable-next-line */}
             <a className="btn btn-primary mx-1" href="/login" role="button">Login</a>
             {/* // eslint-disable-next-line */}
             <a className="btn btn-primary mx-1" href="/signup" role="button">Signup</a>
-      </form>
+          </form>: <button onClick={handleLogout} className="btn btn-primary">Logout</button>}
     </div>
   </div>
 </nav>

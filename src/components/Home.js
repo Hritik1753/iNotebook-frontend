@@ -1,13 +1,13 @@
 import React from 'react';
 import Notes from './Notes';
 // import Addnote from './Addnote';
-function Home() {
+function Home(props) {
  
   return (
     <div >
      
       {/* <Addnote/> */}
-      <Notes/>
+      <Notes showAlert={props.showAlert} />
       
 
     </div>

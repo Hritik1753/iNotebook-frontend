@@ -14,6 +14,7 @@ function About() {
     <div>
       {/* this is about {a.state.name} and he is in class {a.state.class} */}
       This is About
+      <br/> make user profile page 
     </div>
   )
 }

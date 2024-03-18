@@ -32,7 +32,7 @@ const NoteState = (props) => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjVlZjUyOTEyNjU3YTJiMzNhMTkyNGNhIn0sImlhdCI6MTcxMDQyMjI5MH0.ACcVwXrfQt8yB2dd0SDI8O47PiVC445CNUKXEWdqB_E"
+        "auth-token": localStorage.getItem('token')
       }
       
     });
@@ -51,25 +51,13 @@ const NoteState = (props) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjVlZjUyOTEyNjU3YTJiMzNhMTkyNGNhIn0sImlhdCI6MTcxMDQyMjI5MH0.ACcVwXrfQt8yB2dd0SDI8O47PiVC445CNUKXEWdqB_E"
+        "auth-token": localStorage.getItem('token')
       },
       body: JSON.stringify({ title, description, tag })
     });
 
-    const json = await response.json();
-    console.log(json);
-
-    console.log("Adding a new note");
-
-   const note ={
-      "_id": "65f20078151ed9266623256c",
-      "user": "65ef52912657a2b33a1924ca",
-      "title": title,
-      "description": description,
-      "tag": tag,
-      "date": "2024-03-13T19:37:28.303Z",
-      "__v": 0
-    };
+    const note = await response.json();
+   
     setNotes(notes.concat(note));
   }
 
@@ -83,7 +71,7 @@ const NoteState = (props) => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjVlZjUyOTEyNjU3YTJiMzNhMTkyNGNhIn0sImlhdCI6MTcxMDQyMjI5MH0.ACcVwXrfQt8yB2dd0SDI8O47PiVC445CNUKXEWdqB_E"
+        "auth-token": localStorage.getItem('token')
         
       }
     });
@@ -106,7 +94,7 @@ const NoteState = (props) => {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjVlZjUyOTEyNjU3YTJiMzNhMTkyNGNhIn0sImlhdCI6MTcxMDQyMjI5MH0.ACcVwXrfQt8yB2dd0SDI8O47PiVC445CNUKXEWdqB_E"
+        "auth-token": localStorage.getItem('token')
       },
       body: JSON.stringify({ title, description, tag })
     });
@@ -126,10 +114,29 @@ const NoteState = (props) => {
     }  
     setNotes(newNotes);
   }
+//get user detail
+  const getuser = async() => {
+    //API call
+    const response = await fetch(`${ host }/api/auth/getuser`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        "auth-token": localStorage.getItem('token')
+      }
+      
+    });
+
+    const json = await response.json();
+    console.log(json);
+    console.log("tera baap");
+    setNotes(json);
+  }
+
+
   
     return (
         //ese send state:state , update:update in bracket {}
-        <NoteContext.Provider value={{notes,addNote,deleteNote,editNote,getNotes}}>
+        <NoteContext.Provider value={{notes,addNote,deleteNote,editNote,getNotes,getuser}}>
             {props.children}
         </NoteContext.Provider>
     )

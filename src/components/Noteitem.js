@@ -6,17 +6,17 @@ function Noteitem(props) {
   const { deleteNote } = context;
     const { note,updateNote } = props;
   return (
-    <div className="col-md-3">
+    <div className="col-md-3" style={{backgroundColor:"#f7f9fc",width:"200vh"}}>
           {/* {note.tag} */}
                             {/* //style="width: 18rem;" */}
-          <div className="card my-3" >
+          <div className="card my-3" style={{}} >
   {/* <img src="..." className="card-img-top" alt="..."/> */}
-  <div className="card-body">
+  <div className="card-body" style={{backgroundColor:"",width:'174.2vh'}}>
           
           < div className="d-flex align-items-center">
             <h5 className="card-title">{note.title}</h5>
-            <i className="fa-solid fa-trash mx-2" onClick={() => { deleteNote(note._id) }}></i>
-            <i className="fa-solid fa-pen-nib mx-2" onClick={() => { updateNote(note) }}></i>
+            <button type='button' className="btn btn-primary mx-2" style={{backgroundColor:"red"}} onClick={() => { deleteNote(note._id); props.showAlert("deleted successfully", "success"); }}>delete</button>
+            <button type='button' className="btn btn-primary mx-2" onClick={() => { updateNote(note) }}>edit</button>
           </div>
 
           <p className="card-text">{note.description}</p>
