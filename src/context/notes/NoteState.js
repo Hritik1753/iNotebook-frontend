@@ -20,10 +20,12 @@ const NoteState = (props) => {
   const host = "http://localhost:5000";
 
 
-    const notesInitial=[]
+  const notesInitial = [];
+  const userInitial = [];
     
 
-    const [notes, setNotes] = useState(notesInitial);
+  const [notes, setNotes] = useState(notesInitial);
+  const [user, setUser] = useState(userInitial);
 
   //Add a Note
   const getNotes = async() => {
@@ -129,14 +131,14 @@ const NoteState = (props) => {
     const json = await response.json();
     console.log(json);
     console.log("tera baap");
-    setNotes(json);
+    setUser(json);
   }
 
 
   
     return (
         //ese send state:state , update:update in bracket {}
-        <NoteContext.Provider value={{notes,addNote,deleteNote,editNote,getNotes,getuser}}>
+        <NoteContext.Provider value={{user,notes,addNote,deleteNote,editNote,getNotes,getuser}}>
             {props.children}
         </NoteContext.Provider>
     )

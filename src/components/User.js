@@ -3,7 +3,7 @@ import UserContext from '../context/notes/noteContext';
 
 function User() {
   const context = useContext(UserContext); // Correcting context import
-  const { notes, getuser } = context;
+  const { user, getuser } = context;
 
   useEffect(() => {
     getuser(); // Fetch user details when component mounts
@@ -13,7 +13,7 @@ function User() {
   // Conditional rendering to handle case when user is not yet fetched
   return (
     <div>
-      {notes ? (
+      {user ? (
         <>
           <section className="vh-100" style={{backgroundcolor: "#f4f5f7"}}>
   <div className="container py-5 h-100">
@@ -26,7 +26,7 @@ function User() {
                         >
               <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
                 alt="Avatar" className="img-fluid my-5" style={{width : "80px"}} />
-                        <h5 style={{ color: "black" }}>{ notes.name}</h5>
+                        <h5 style={{ color: "black" }}>{ user.name}</h5>
               <p style={{color:"black"}}>Web Designer</p>
               <i className="far fa-edit mb-5"></i>
             </div>
@@ -37,7 +37,7 @@ function User() {
                 <div className="row pt-1">
                   <div className="col-6 mb-3">
                     <h6>Email</h6>
-                              <p className="text-muted">{notes.email }</p>
+                              <p className="text-muted">{user.email }</p>
                   </div>
                   <div className="col-6 mb-3">
                     <h6>Phone</h6>

@@ -3,6 +3,7 @@ import noteContext from "../context/notes/noteContext"
 import Noteitem from './Noteitem';
 import AddNote from './Addnote';
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Notes = (props) => {
 
@@ -39,9 +40,6 @@ const Notes = (props) => {
         setNote({...note, [e.target.name]: e.target.value})
     }
 
-    const showAddNote = () => {
-        <AddNote showAlert={props.showAlert} />
-    }
 
     return (
         <>
@@ -66,7 +64,7 @@ const Notes = (props) => {
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="description" className="form-label">Description</label>
-                                    <input type="text" className="form-control" id="edescription" name="edescription" value={note.edescription} onChange={onChange} minLength={5} required/>
+                                    <textarea type="text" rows={5} className="form-control" id="edescription" name="edescription" value={note.edescription} onChange={onChange} minLength={5} required></textarea>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="tag" className="form-label">Tag</label>
@@ -86,7 +84,7 @@ const Notes = (props) => {
        
             <div className="row my-3" style={{ backgroundColor: "#f7f9fc", color: "black" }}>
                 <h2>You Notes</h2>
-                <a className="btn btn-primary " href='/addnote' style={{backgroundColor:'green',width:'150px'}} >Add Note</a> 
+                <Link className="btn btn-primary " to='/addnote' style={{backgroundColor:'green',width:'150px'}} >Add Note</Link> 
                 <div className="container mx-2" > 
                 {notes.length===0 && 'No notes to display'}
                 </div>
