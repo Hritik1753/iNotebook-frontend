@@ -22,6 +22,7 @@ function Noteitem(props) {
 
           <p className="card-text">{note.description}</p>
           <h6 className='card-title'>{note.tag}</h6>
+          <h10 className='card-title'>{note.date}</h10>
          
  {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
 {/* button hm font awosome se layenge */}
