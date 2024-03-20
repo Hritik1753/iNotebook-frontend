@@ -11,7 +11,8 @@ import Signup from './components/Signup';
 import { useState } from 'react';
 import User from './components/User';
 import Addnote from './components/Addnote';
-import UserState from './context/user/UserState';
+// import UserState from './context/user/UserState';
+import Add_detail from './components/Add_detail';
 function App() {
 
   const [alert, setalert] = useState(null);
@@ -56,6 +57,10 @@ function App() {
 
             <Route path="/addnote">
             <Route index element={<Addnote showAlert={showAlert}/>} />
+            </Route>
+
+            <Route path="/adddetail">
+            <Route index element={<Add_detail showAlert={showAlert}/>} />
             </Route>
           
         </Routes>

@@ -20,9 +20,13 @@ const Addnote = (props) => {
     const onChange = (e)=>{
         setNote({...note, [e.target.name]: e.target.value})
     }
+
+    const handleback = () => {
+        navigate('/');
+    }
     return (
         <>
-            <button type="button" className="btn btn-primary mt-3" style={{backgroundColor:'green'}} >Add Note</button>
+            <button type="button" className="btn btn-primary mt-3" onClick={handleback} style={{backgroundColor:'green'}} >Back</button>
         <div className="container my-3" style={{backgroundColor:'#f7f9fc'}}>
             <h2>Add a Note</h2>
             <form className="my-3">
