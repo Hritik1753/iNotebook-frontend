@@ -29,10 +29,10 @@ function Signup(props) {
       // console.log(json.authtoken);
       if (json.success) {
         // Save the auth token and redirect
-        localStorage.setItem('token', json.authtoken);
+        // localStorage.setItem('token', json.authtoken);
         // history.push("/");
-        navigate('/');
-        props.showAlert("Account created successfully", "success");
+        navigate('/verify/:email');
+        props.showAlert("Account created successfully please verify your email", "success");
       }
       else {
         props.showAlert("Invalid Credentials", "danger");

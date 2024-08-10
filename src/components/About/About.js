@@ -36,7 +36,7 @@ function About() {
                               <div className="card">
                                   <div className="card-body text-center">
                                       <p>
-                                          <img className=" img-fluid" alt="Team Cards Flipper" src="http://prepbootstrap.com/Content/images/template/people/person5.jpg" /></p>
+                                          <img className=" img-fluid" alt="Team Cards Flipper" src="https://media.licdn.com/dms/image/D4D03AQEgjHH3TsvWhQ/profile-displayphoto-shrink_800_800/0/1699725247520?e=1725494400&v=beta&t=EmLyOLyaM8YkYNQgAeWboyFtRHjHD7Xs7A8FUAly9KY" /></p>
                                       <h4 className="card-title">Hritik Paswan</h4>
                                       <p className="card-text">Hii i am hritik paswan this website is made by me</p>
                                       <Link to="/" className="btn btn-primary btn-sm">More</Link>
@@ -85,31 +85,32 @@ function About() {
 
         <div className="container"  style={{backgroundColor:""}}>
         <dl class="row">
-  <dt class="col-sm-3">Description lists</dt>
-  <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+  <dt class="col-sm-3">Name</dt>
+  <dd class="col-sm-9">Hritik Paswan.</dd>
 
-  <dt class="col-sm-3">Euismod</dt>
+  <dt class="col-sm-3">Education</dt>
   <dd class="col-sm-9">
-    <p>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</p>
-    <p>Donec id elit non mi porta gravida at eget metus.</p>
+    <p>Bacholar of Technology in Computer Science and Engineering graduagte in 2025</p>
+    <p>From Motilal Nehru National Institute of Technology Allahabad</p>
   </dd>
 
-  <dt class="col-sm-3">Malesuada porta</dt>
-  <dd class="col-sm-9">Etiam porta sem malesuada magna mollis euismod.</dd>
+  <dt class="col-sm-3">Previous institution </dt>
+ <dd class="col-sm-9">Jawahar Navodaya Vidyalaya Prayagraj</dd>
+ {/* <dd class="col-sm-9">Jawahar Navodaya Vidyalaya Barabanki</dd> */}
 
-  <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
-  <dd class="col-sm-9">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+  <dt class="col-sm-3 text-truncate"></dt>
+  <dd class="col-sm-9">Jawahar Navodaya Vidyalaya Barabanki.</dd>
 
-  <dt class="col-sm-3">Nesting</dt>
+  <dt class="col-sm-3">Contact</dt>
   <dd class="col-sm-9">
     <dl class="row">
-      <dt class="col-sm-4">Nested definition list</dt>
-      <dd class="col-sm-8">Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc.</dd>
+      {/* <dt class="col-sm-4"></dt> */}
+      <dd class="col-sm-8">9335502064</dd>
     </dl>
           </dd>
           
-          <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
-  <dd class="col-sm-9">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, facere. Ab, enim dolorem placeat voluptatibus, omnis, quidem vero et expedita vel temporibus aut facere! Enim, excepturi. Repellat magnam nemo quis esse tenetur cupiditate sed ea provident perferendis aspernatur ipsum sunt itaque facilis officiis harum exercitationem reiciendis voluptas, qui earum, quibusdam nihil minima. Odit, suscipit porro facilis quibusdam rem laborum corporis natus laboriosam! Enim atque necessitatibus non maiores doloribus sequi iste facilis modi voluptates, quisquam voluptatem voluptas, tempora harum aliquid quas qui eligendi dicta. Nisi odio porro libero, ducimus neque pariatur placeat veniam, sed quod consequuntur optio delectus maiores ut eos, in enim minus! Reprehenderit, tempora. Eius tempore iste voluptate id veniam odio, earum non magnam nemo, sapiente et, maxime illum quo neque culpa minima cupiditate nostrum repudiandae reiciendis. Velit modi veniam vel nemo excepturi  </dd>     
+          <dt class="col-sm-3 text-truncate">About Myself</dt>
+  <dd class="col-sm-9">I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.  </dd>     
 </dl>
 </div>
 

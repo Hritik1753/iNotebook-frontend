@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react'
-import noteContext from "../context/notes/noteContext"
+import noteContext from "../../context/notes/noteContext"
 import { useNavigate } from 'react-router-dom';
 
 const Addnote = (props) => {
@@ -13,11 +13,21 @@ const Addnote = (props) => {
         e.preventDefault();
         addNote(note.title, note.description, note.tag);
         setNote({ title: "", description: "", tag: "" })
-        navigate('/');
+        navigate('/notes');
         props.showAlert("note Added successfully", "success");
     }
 
-    const onChange = (e)=>{
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            // Prevent the default behavior of Enter key
+            e.preventDefault();
+            // Add a newline character to the description
+            setNote((prevNote) => ({ ...prevNote, description: prevNote.description + '\n' }));
+        }
+    };
+
+
+    const onChange = (e) => {
         setNote({...note, [e.target.name]: e.target.value})
     }
 
@@ -36,7 +46,7 @@ const Addnote = (props) => {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="description" className="form-label">Description</label>
-                    <textarea style={{height:""}} rows={5} type="text" className="form-control" id="description" name="description" value={note.description} onChange={onChange} minLength={5} required ></textarea>
+                    <textarea style={{height:""}} rows={5} type="text" className="form-control" id="description" name="description" value={note.description} onChange={onChange} minLength={5} required  onKeyDown={handleKeyDown}  ></textarea>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="tag" className="form-label">Tag</label>

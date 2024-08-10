@@ -9,7 +9,7 @@ const Notes = (props) => {
 
     const navigate = useNavigate();
     const context = useContext(noteContext);
-    const { notes, getNotes, editNote } = context;
+    const { user,notes, getNotes, editNote } = context;
     useEffect(() => {
         if (localStorage.getItem('token')) {
             getNotes()
@@ -20,6 +20,17 @@ const Notes = (props) => {
         
         // eslint-disable-next-line
     }, [])
+
+    // useEffect(() => {
+    //     if (user) {
+    //         getNotes()
+    //     }
+        
+        
+    //     // eslint-disable-next-line
+    // }, [])
+
+
     const ref = useRef(null)
     const refClose = useRef(null)
     const [note, setNote] = useState({id: "", etitle: "", edescription: "", etag: ""})
@@ -43,7 +54,7 @@ const Notes = (props) => {
 
 
     return (
-        <>
+        <div className='' style={{width:"", backgroundColor:""}}>
             {/* <button type="button" className="btn btn-primary mt-3"  >Add Note</button> */}
             {/* <AddNote showAlert={props.showAlert} /> */}
             {/* //modal in bootstrap  */}
@@ -83,18 +94,23 @@ const Notes = (props) => {
             </div>
 
        
-            <div className="row my-3" style={{ backgroundColor: "#f7f9fc", color: "black" }}>
+            <div className="row my-3" style={{ backgroundColor: "#f7f9fc", color: "black", width:"", marginLeft:"1px",marginRight:"2px",marginTop:"-1px" ,}}>
                 <h2>You Notes</h2>
                 <Link className="btn btn-primary " to='/addnote' style={{backgroundColor:'green',width:'150px'}} >Add Note</Link> 
                 <div className="container mx-2" > 
                 {notes.length===0 && 'No notes to display'}
                 </div>
                 {notes.map((note) => {
-                    return <Noteitem key={note._id} updateNote={updateNote} note={note} showAlert={props.showAlert} />
+                    return (
+                        <div className="car" style={{display:"flex"}}>
+                            <Noteitem key={note._id} updateNote={updateNote} note={note} showAlert={props.showAlert} />
+                        </div>
+                        
+                    )
                 })}
             </div>
             
-        </>
+        </div>
     )
 }
 

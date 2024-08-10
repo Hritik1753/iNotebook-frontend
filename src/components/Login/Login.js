@@ -29,8 +29,9 @@ const Login = (props) => {
             navigate('/');
            
         }
-        else{
-            props.showAlert("Invalid email or password", "danger");
+        else {
+            let msg = json.error;
+            props.showAlert(msg, "danger");
         }
     }
 

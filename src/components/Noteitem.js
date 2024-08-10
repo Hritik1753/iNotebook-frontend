@@ -7,12 +7,14 @@ function Noteitem(props) {
   const { deleteNote } = context;
     const { note,updateNote } = props;
   return (
-    <div className="col-md-3" style={{backgroundColor:"#f7f9fc",width:"200vh"}}>
+    <div className="col-md-3" style={{backgroundColor:"#f7f9fc",width:"170vh"}}>
           {/* {note.tag} */}
                             {/* //style="width: 18rem;" */}
           <div className="card my-3" style={{}} >
-  {/* <img src="..." className="card-img-top" alt="..."/> */}
-  <div className="card-body" style={{backgroundColor:"",width:'174.2vh'}}>
+        {/* <img src="..." className="card-img-top" alt="..."/> */}
+         {/* backgroundImage: "url('https://images.pexels.com/photos/4210787/pexels-photo-4210787.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')" */}
+  <div className="card-body" style={{ backgroundColor: "", width: '100vh' }}>
+
           
           < div className="d-flex align-items-center">
             <h5 className="card-title">{note.title}</h5>

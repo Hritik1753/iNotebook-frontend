@@ -1,18 +1,21 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import About from './components/About';
+import Navbar from './components/Navbar/Navbar';
+import Home from './components/Home/Home';
+import About from './components/About/About';
 import NoteState from './context/notes/NoteState';
-import Alert from './components/Alert';
-import Login from './components/Login';
-import Signup from './components/Signup';
+import Alert from './components/Alert/Alert';
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
 import { useState } from 'react';
 import User from './components/User';
-import Addnote from './components/Addnote';
+import Addnote from './components/AddNote/Addnote';
 // import UserState from './context/user/UserState';
-import Add_detail from './components/Add_detail';
+import Add_detail from './components/Adddetails/Add_detail';
+import Sidebar from './components/Sidebar/Sidebar';
+import Note from './components/Note/Note';
+import Verify from './Verify';
 function App() {
 
   const [alert, setalert] = useState(null);
@@ -28,31 +31,41 @@ function App() {
   }
 
   return (
-    <NoteState>
+    <NoteState >
       <BrowserRouter>
-     
-        <Navbar showAlert={showAlert} />
+       
+          <Navbar showAlert={showAlert} />
+
         <Alert alert={alert} />
-           <div className="container">
+        
+        
         <Routes>
           <Route path="/">
               <Route index element={<Home showAlert={showAlert} />} />
             </Route>
-            <Route path="/about">
-            <Route index element={<About />} />
+            <Route path="/user">
+            <Route index element={<User />} />
               
+          </Route>
+          
+          <Route path="/notes">
+            <Route index element={<Note showAlert={showAlert}/>} />
             </Route>
 
             <Route path="/login">
             <Route index element={<Login showAlert={showAlert}/>} />
+          </Route>
+          
+          <Route path="/verify/:email">
+            <Route index element={<Verify showAlert={showAlert}/>} />
             </Route>
 
             <Route path="/signup">
             <Route index element={<Signup showAlert={showAlert}/>} />
             </Route>
 
-            <Route path="/user">
-            <Route index element={<User showAlert={showAlert}/>} />
+            <Route path="/about">
+            <Route index element={<About showAlert={showAlert}/>} />
             </Route>
 
             <Route path="/addnote">
@@ -67,7 +80,7 @@ function App() {
       
       
 
-       </div>
+       
     </BrowserRouter>
     </NoteState>
     

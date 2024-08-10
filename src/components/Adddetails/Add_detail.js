@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import noteContext from "../context/notes/noteContext"
+import noteContext from "../../context/notes/noteContext"
 function Add_detail(props) {
     const context = useContext(noteContext);
     const { addUserdetails } = context;

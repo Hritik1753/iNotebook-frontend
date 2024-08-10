@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import noteContext from "../context/notes/noteContext"
-import User from './User';
+import noteContext from "../../context/notes/noteContext"
+import User from '../User';
 // import AddNote from './Addnote';
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
